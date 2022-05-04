@@ -1,0 +1,96 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@{
+    ViewData["Title"] = "Próximamente";
+}
+
+<div class="container fondoContainer">
+    <h2 class="encabezado">PROXIMAMENTE</h2>
+    <div class="row form-group inline-block">
+        @using (Html.BeginForm("Proximamente", "Peliculas", FormMethod.Get, new { @class = "row w-100 ml-3" }))
+        {
+            <label>Filtrar por Género : </label>
+            <select class="form-control w-25 ml-3" id="buscGenero" placeholder="-- Seleccione --" asp-items="@(new SelectList(@ViewBag.Generos,"Id","NombreGenero"))">
+                <option value="">Seleccione...</option>
+                <option value="0">- TODOS -</option>
+            </select>
+            <button class="d-none" type="submit" value="" name="buscadorGenero" id="buscadorGenero">btn</button>
+        }
+    </div>
+    <div class="row">
+        @foreach (var pelicula in ViewBag.PeliculasProximamente)
+        {
+            <div class="col-lg-6 col-sm-12 cardPelicula">
+                <img src="~/img/peliculas/@(pelicula.Id).jpg" />
+                <div class="pl-4">
+                    <div class="row">
+                        <h5>Título:</h5>
+                        <p>@pelicula.Nombre</p>
+                    </div>
+                    <div class="row">
+                        <h5>Genero:</h5>
+                        <p>@pelicula.Genero.NombreGenero</p>
+                    </div>
+                    <div class="row">
+                        <h5>Director:</h5>
+                        <p>@pelicula.Director</p>
+                    </div>
+                    <div class="row">
+                        <h5>Reparto:</h5>
+                        <p>@pelicula.Reparto</p>
+                    </div>
+                    <div class="row">
+                        <h5>Trailer:</h5>
+                        <a href="@pelicula.Trailer" target="_blank">@pelicula.Trailer</a>
+                    </div>
+                    <div class="row text-wrap">
+                        <h5>Sinopsis:</h5>
+                        <p>@pelicula.Sinopsis</p>
+                    </div>
+                    <label>Calificación:</label>
+                    <div class="rating">
+                        <input type="radio" name="rating" class="estrella" value="5" id="5"><label class="tamEstrella" for="5">☆</label>
+                        <input type="radio" name="rating" class="estrella" value="4" id="4"><label class="tamEstrella" for="4">☆</label>
+                        <input type="radio" name="rating" class="estrella" value="3" id="3"><label class="tamEstrella" for="3">☆</label>
+                        <input type="radio" name="rating" class="estrella" value="2" id="2"><label class="tamEstrella" for="2">☆</label>
+                        <input type="radio" name="rating" class="estrella" value="1" id="1"><label class="tamEstrella" for="1">☆</label>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="paginationDiv fondoContainer">
+    @Html.PagedListPager((IPagedList)ViewBag.PeliculasProximamente, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Mvc.Common.PagedListRenderOptions
+    {
+        DisplayItemSliceAndTotal = true,
+        ContainerDivClasses = new[] { "page-item" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+    })
+</div>
+
+@section Scripts{
+    <script>
+        //Corregir error en estilos de paginacion
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });
+
+        $(".estrella").on('click', function () {
+            console.log("Star " + $(this).val() + " clicked!");
+        })
+
+
+        //Filtrar Películas por género
+        $("#buscGenero").on('change', function () {
+            let genId = $(this).val();
+            $("#buscadorGenero").val(genId);
+            $("#buscadorGenero").click();
+        });
+    </script>
+
+}

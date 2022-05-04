@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="banner">
+    <img src="~/img/banner.jpg">
+</div>
+<br>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @foreach (var pelicula in ViewBag.Peliculas)
+        {
+            <li data-target="#carouselExampleIndicators" data-slide-to="@pelicula.Id" class="active"></li>
+        }
+
+    </ol>
+    <div class="carousel-inner text-center">
+        @foreach (var pelicula in ViewBag.Peliculas)
+        {
+            <div class="carousel-item @(pelicula.Id == 1 ? "active" : "") ">
+                <a href="@pelicula.Trailer" target="_blank">
+                    <img class="d-block w-100" src="~/img/carrusel/@(pelicula.Id).jpg" alt="@pelicula.Nombre">
+                </a>
+            </div>
+        }
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<p class="textoInicio">
+    Bienvenidos a CINE+ adonde experimentaras el mayor realismo de la industria cinematofráfica.<br>
+    Las ultimas películas siempre las veras primero en nuestra red de cines CINE+.<br>
+    Butacas reclinables con sonido envolvente Surround 5.1
+</p>
+
+
+@*<script type="text/javascript">
+    $('.carousel').carousel()
+</script>*@
