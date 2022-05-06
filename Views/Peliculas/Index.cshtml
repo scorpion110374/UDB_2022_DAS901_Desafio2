@@ -1,4 +1,5 @@
-﻿@using X.PagedList.Mvc.Core;
+﻿
+@using X.PagedList.Mvc.Core;
 @using X.PagedList;
 
 @{
@@ -10,12 +11,12 @@
     <div class="row form-group inline-block">
         @using (Html.BeginForm("Index", "Peliculas", FormMethod.Get, new { @class = "row w-100 ml-3" }))
         {
-        <label>Filtrar por Género : </label>
-        <select class="form-control w-25 ml-3" id="buscGenero" placeholder="-- Seleccione --" asp-items="@(new SelectList(@ViewBag.Generos,"Id","NombreGenero"))">
-            <option value="">Seleccione...</option>
-            <option value="0">- TODOS -</option>
-        </select>
-        <button class="d-none" type="submit" value="" name="buscadorGenero" id="buscadorGenero">btn</button>
+            <label>Filtrar por Género : </label>
+            <select class="form-control w-25 ml-3" id="buscGenero" placeholder="-- Seleccione --" asp-items="@(new SelectList(@ViewBag.Generos,"Id","NombreGenero"))">
+                <option value="">Seleccione...</option>
+                <option value="0">- TODOS -</option>
+            </select>
+            <button class="d-none" type="submit" value="" name="buscadorGenero" id="buscadorGenero">btn</button>
         }
     </div>
     <div class="row">
@@ -44,33 +45,86 @@
                         <h5>Trailer:</h5>
                         <a href="@pelicula.Trailer" target="_blank">@pelicula.Trailer</a>
                     </div>
-                    <div class="row text-wrap">
+                    <div class="row">
                         <h5>Sinopsis:</h5>
                         <p>@pelicula.Sinopsis</p>
                     </div>
                     <label>Calificación:</label>
-                    <div class="rating">
-                        <input type="radio" name="rating" class="estrella" value="5" id="5"><label class="tamEstrella" for="5">☆</label>
-                        <input type="radio" name="rating" class="estrella" value="4" id="4"><label class="tamEstrella" for="4">☆</label>
-                        <input type="radio" name="rating" class="estrella" value="3" id="3"><label class="tamEstrella" for="3">☆</label>
-                        <input type="radio" name="rating" class="estrella" value="2" id="2"><label class="tamEstrella" for="2">☆</label>
-                        <input type="radio" name="rating" class="estrella" value="1" id="1"><label class="tamEstrella" for="1">☆</label>
-
-                    </div>
+                    @if (pelicula.Calificacion == 1)
+                    {
+                        <div class="rating">
+                            <input type="radio" class="estrella" value="5" id="@(pelicula.Id)_5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_5">☆</label>
+                            <input type="radio" class="estrella" value="4" id="@(pelicula.Id)_4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_4">☆</label>
+                            <input type="radio" class="estrella" value="3" id="@(pelicula.Id)_3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_3">☆</label>
+                            <input type="radio" class="estrella" value="2" id="@(pelicula.Id)_2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_2">☆</label>
+                            <input type="radio" class="estrella" value="1" id="@(pelicula.Id)_1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_1">★</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 2)
+                    {
+                        <div class="rating">
+                            <input type="radio" class="estrella" value="5" id="@(pelicula.Id)_5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_5">☆</label>
+                            <input type="radio" class="estrella" value="4" id="@(pelicula.Id)_4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_4">☆</label>
+                            <input type="radio" class="estrella" value="3" id="@(pelicula.Id)_3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_3">☆</label>
+                            <input type="radio" class="estrella" value="2" id="@(pelicula.Id)_2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_2">★</label>
+                            <input type="radio" class="estrella" value="1" id="@(pelicula.Id)_1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_1">★</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 3)
+                    {
+                        <div class="rating">
+                            <input type="radio" class="estrella" value="5" id="@(pelicula.Id)_5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_5">☆</label>
+                            <input type="radio" class="estrella" value="4" id="@(pelicula.Id)_4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_4">☆</label>
+                            <input type="radio" class="estrella" value="3" id="@(pelicula.Id)_3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_3">★</label>
+                            <input type="radio" class="estrella" value="2" id="@(pelicula.Id)_2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_2">★</label>
+                            <input type="radio" class="estrella" value="1" id="@(pelicula.Id)_1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_1">★</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 4)
+                    {
+                        <div class="rating">
+                            <input type="radio" class="estrella" value="5" id="@(pelicula.Id)_5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_5">☆</label>
+                            <input type="radio" class="estrella" value="4" id="@(pelicula.Id)_4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_4">★</label>
+                            <input type="radio" class="estrella" value="3" id="@(pelicula.Id)_3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_3">★</label>
+                            <input type="radio" class="estrella" value="2" id="@(pelicula.Id)_2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_2">★</label>
+                            <input type="radio" class="estrella" value="1" id="@(pelicula.Id)_1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_1">★</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 5)
+                    {
+                        <div class="rating">
+                            <input type="radio" class="estrella" value="5" id="@(pelicula.Id)_5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_5">★</label>
+                            <input type="radio" class="estrella" value="4" id="@(pelicula.Id)_4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_4">★</label>
+                            <input type="radio" class="estrella" value="3" id="@(pelicula.Id)_3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_3">★</label>
+                            <input type="radio" class="estrella" value="2" id="@(pelicula.Id)_2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_2">★</label>
+                            <input type="radio" class="estrella" value="1" id="@(pelicula.Id)_1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_1">★</label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="rating">
+                            <input type="radio" class="estrella" value="5" id="@(pelicula.Id)_5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_5">☆</label>
+                            <input type="radio" class="estrella" value="4" id="@(pelicula.Id)_4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_4">☆</label>
+                            <input type="radio" class="estrella" value="3" id="@(pelicula.Id)_3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_3">☆</label>
+                            <input type="radio" class="estrella" value="2" id="@(pelicula.Id)_2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_2">☆</label>
+                            <input type="radio" class="estrella" value="1" id="@(pelicula.Id)_1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="@(pelicula.Id)_1">☆</label>
+                        </div>
+                    }
                 </div>
             </div>
         }
     </div>
-</div>
-<div class="paginationDiv fondoContainer">
-    @Html.PagedListPager((IPagedList)ViewBag.Peliculas, page => Url.Action("Index", new { page = page }),
-    new X.PagedList.Mvc.Common.PagedListRenderOptions
-    {
-        DisplayItemSliceAndTotal = true,
-        ContainerDivClasses = new[] { "page-item" },
-        LiElementClasses = new[] { "page-item" },
-        PageClasses = new[] { "page-link" },
-    })
+
+    <div class="paginationDiv fondoContainer">
+        @Html.PagedListPager((IPagedList)ViewBag.Peliculas, page => Url.Action("Index", new { page = page }),
+        new X.PagedList.Mvc.Common.PagedListRenderOptions
+        {
+            DisplayItemSliceAndTotal = true,
+            ContainerDivClasses = new[] { "page-item" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+        })
+    </div>
 </div>
 
 @section Scripts{
@@ -80,8 +134,21 @@
             $('ul.pagination > li.disabled > a').addClass('page-link');
         });
 
+
+        //Guardar Calificación
         $(".estrella").on('click', function () {
-            console.log("Star " + $(this).val() +" clicked!");
+            let idPelicula = $(this).attr('idpelicula');
+            let ratPelicula = $(this).val();
+
+            //Hacer llamada a controlador
+            $.ajax({
+                url: '@Url.Action("GuardarCalificacion", "Peliculas")',
+                type: "POST",
+                data: { 'id': idPelicula, 'rating': ratPelicula },
+                success: function (data) {
+                    location.reload();
+                }
+            })
         })
 
 
@@ -91,6 +158,7 @@
             $("#buscadorGenero").val(genId);
             $("#buscadorGenero").click();
         });
+
     </script>
 
  }

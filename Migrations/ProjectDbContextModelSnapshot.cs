@@ -35,15 +35,12 @@ namespace DAS901_Desafio2.Migrations
                     b.Property<int>("IdPelicula")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PeliculaId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("idUsuario")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PeliculaId");
+                    b.HasIndex("IdPelicula");
 
                     b.ToTable("Calificaciones");
                 });
@@ -445,7 +442,9 @@ namespace DAS901_Desafio2.Migrations
                 {
                     b.HasOne("DAS901_Desafio2.Models.Pelicula", "Pelicula")
                         .WithMany()
-                        .HasForeignKey("PeliculaId");
+                        .HasForeignKey("IdPelicula")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DAS901_Desafio2.Models.Pelicula", b =>

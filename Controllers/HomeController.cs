@@ -30,6 +30,7 @@ namespace DAS901_Desafio2.Controllers
             return View();
         }
 
+
         public IActionResult Privacy()
         {
             return View();
@@ -41,10 +42,6 @@ namespace DAS901_Desafio2.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Promociones()
-        { 
-            return View();
-        }
 
         [HttpGet]
         public IActionResult Contacto()
@@ -54,10 +51,12 @@ namespace DAS901_Desafio2.Controllers
             listarTemas.Add(new SelectListItem { Text = "Felicitación", Value = "Felicitación" });
             listarTemas.Add(new SelectListItem { Text = "Problema", Value = "Problema" });
             listarTemas.Add(new SelectListItem { Text = "Queja", Value = "Queja" });
+            listarTemas.Add(new SelectListItem { Text = "Sugerencia", Value = "Sugerencia" });
 
             ViewBag.listaTemas = listarTemas;
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Contacto(Contacto Contacto)

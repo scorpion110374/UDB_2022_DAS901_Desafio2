@@ -22,6 +22,7 @@ namespace DAS901_Desafio2.Models
         [DisplayName("Calificación")]
         public int CalificacionPelicula { get; set; }
 
+        [ForeignKey("IdPelicula ")]
         public Pelicula Pelicula { get; set; }
     }
 }

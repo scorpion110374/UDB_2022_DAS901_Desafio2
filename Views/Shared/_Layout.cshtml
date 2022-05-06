@@ -41,9 +41,6 @@
                             <a class="nav-link text-warning" asp-area="" asp-controller="Peliculas" asp-action="Ranking">Ranking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-warning" asp-area="" asp-controller="Home" asp-action="Promociones">Promociones</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-warning" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
                         </li>
                     </ul>
@@ -71,3 +68,25 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+		// Mensajes de error
+		var mensaje = '@TempData["Mensaje"]';
+			if (mensaje != '')
+				Swal.fire({
+				  icon: 'success',
+				  title: mensaje,
+				  showConfirmButton: false,
+				  timer: 1500
+				})
+
+		var mensajeError = '@TempData["Error"]';
+		if (mensajeError != '')
+			Swal.fire({
+				icon: 'error',
+				title: mensajeError,
+				showConfirmButton: false,
+				timer: 1500
+            })
+    });
+</script>

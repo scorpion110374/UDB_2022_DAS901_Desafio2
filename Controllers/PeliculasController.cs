@@ -124,7 +124,46 @@ namespace DAS901_Desafio2.Controllers
 
         public IActionResult Ranking()
         {
+            //Listar películas para el list
+            //Filtrar productos si buscador viene con valor o es nulo
+            var peliculas = _db.Peliculas.Include(g => g.Genero).OrderByDescending(c => c.Calificacion).Take(5);
+
+            ViewBag.Peliculas = peliculas;
             return View();
+        }
+
+        [HttpPost]
+        public void GuardarCalificacion(int id, int rating)
+        {
+            Calificacion calificacion = new Calificacion();
+
+            calificacion.IdPelicula = id;
+            calificacion.idUsuario = null;
+            calificacion.Fecha = DateTime.Now;
+            calificacion.CalificacionPelicula = rating;
+
+            _db.Calificaciones.Add(calificacion);
+
+            //Actualizar Calificacion de pelicula 
+            var sumPuntos = _db.Calificaciones.Where(i => i.IdPelicula == id).Sum(c => c.CalificacionPelicula);
+            var cuentaVotacion = _db.Calificaciones.Where(i => i.IdPelicula == id).Count();
+
+            var nuevaCalificacion = ((sumPuntos + rating) / (cuentaVotacion + 1)) > 5 ? 5 : (sumPuntos + rating) / (cuentaVotacion + 1);
+
+            Pelicula pelicula = _db.Peliculas.Find(id);
+            pelicula.Calificacion = nuevaCalificacion;
+
+            _db.SaveChanges();
+
+            TempData["Mensaje"] = "Calificacion guardada exitosamente!";
+        }
+
+
+        //Funcion para devolver valor promedio de calificacion
+        public double CalPelicula(int idPelicula)
+        {
+            var calificacion = _db.Calificaciones.Where(i => i.IdPelicula == idPelicula).Average(c => c.CalificacionPelicula);
+            return calificacion;
         }
 
     }

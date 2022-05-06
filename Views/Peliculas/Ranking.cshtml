@@ -6,5 +6,90 @@
 }
 
 <div class="container fondoContainer">
-    <h2 class="encabezado">RANKING</h2>
+    <h2 class="encabezado">RANKING - LAS MEJORES 5</h2>
+    <div class="row">
+        @foreach (var pelicula in ViewBag.Peliculas)
+        {
+            <div class="col-lg-12 col-sm-12 cardPelicula mb-5">
+                <img src="~/img/peliculas/@(pelicula.Id).jpg" />
+                <div class="pl-4">
+                    <div class="row">
+                        <h5>Título:</h5>
+                        <p>@pelicula.Nombre</p>
+                    </div>
+                    <div class="row">
+                        <h5>Genero:</h5>
+                        <p>@pelicula.Genero.NombreGenero</p>
+                    </div>
+                    <div class="row">
+                        <h5>Director:</h5>
+                        <p>@pelicula.Director</p>
+                    </div>
+                    <div class="row">
+                        <h5>Reparto:</h5>
+                        <p>@pelicula.Reparto</p>
+                    </div>
+                    <div class="row">
+                        <h5>Trailer:</h5>
+                        <a href="@pelicula.Trailer" target="_blank">@pelicula.Trailer</a>
+                    </div>
+                    <div class="row">
+                        <h5>Sinopsis:</h5>
+                        <p>@pelicula.Sinopsis</p>
+                    </div>
+                    <label>Calificación:</label>
+                    @if (pelicula.Calificacion == 1)
+                    {
+                        <div class="rating">
+                            <input type="radio" value="5" id="5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="5">★</label>
+                            <input type="radio" value="4" id="4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="4">☆</label>
+                            <input type="radio" value="3" id="3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="3">☆</label>
+                            <input type="radio" value="2" id="2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="2">☆</label>
+                            <input type="radio" value="1" id="1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="1">☆</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 2)
+                    {
+                        <div class="rating">
+                            <input type="radio" value="5" id="5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="5">★</label>
+                            <input type="radio" value="4" id="4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="4">★</label>
+                            <input type="radio" value="3" id="3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="3">☆</label>
+                            <input type="radio" value="2" id="2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="2">☆</label>
+                            <input type="radio" value="1" id="1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="1">☆</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 3)
+                    {
+                        <div class="rating">
+                            <input type="radio" value="5" id="5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="5">★</label>
+                            <input type="radio" value="4" id="4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="4">★</label>
+                            <input type="radio" value="3" id="3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="3">★</label>
+                            <input type="radio" value="2" id="2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="2">☆</label>
+                            <input type="radio" value="1" id="1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="1">☆</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 4)
+                    {
+                        <div class="rating">
+                            <input type="radio" value="5" id="5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="5">★</label>
+                            <input type="radio" value="4" id="4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="4">★</label>
+                            <input type="radio" value="3" id="3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="3">★</label>
+                            <input type="radio" value="2" id="2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="2">★</label>
+                            <input type="radio" value="1" id="1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="1">☆</label>
+                        </div>
+                    }
+                    else if (pelicula.Calificacion == 5)
+                    {
+                        <div class="rating">
+                            <input type="radio" value="5" id="5" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="5">★</label>
+                            <input type="radio" value="4" id="4" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="4">★</label>
+                            <input type="radio" value="3" id="3" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="3">★</label>
+                            <input type="radio" value="2" id="2" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="2">★</label>
+                            <input type="radio" value="1" id="1" idpelicula="@(pelicula.Id)" /><label class="tamEstrella" for="1">★</label>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
 </div>
