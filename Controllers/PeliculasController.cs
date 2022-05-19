@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using X.PagedList;
 
 namespace DAS901_Desafio2.Controllers
@@ -21,7 +22,7 @@ namespace DAS901_Desafio2.Controllers
             _db = db;
         }
 
-        public IActionResult Index(int? buscadorGenero=0, int? page=1)
+        public IActionResult Index(int? buscadorGenero=0, int? page=1, string buscadorNombre=null)
         {
             var pageNumber = page ?? 1;
             int pageSize = 6;
@@ -29,9 +30,9 @@ namespace DAS901_Desafio2.Controllers
 
             //Listar películas para el grid
             //Filtrar productos si buscador viene con valor o es nulo
-            if (buscadorGenero != 0)
+            if (buscadorGenero != 0 || buscadorNombre != null)
             {
-                peliculas = _db.Peliculas.Include(g => g.Genero).Where( i => i.IdGenero == buscadorGenero).ToPagedList(pageNumber, pageSize);
+                peliculas = _db.Peliculas.Include(g => g.Genero).Where( i => i.IdGenero == buscadorGenero || i.Nombre.Contains(buscadorNombre)).ToPagedList(pageNumber, pageSize);
             }
             else
             {
@@ -126,9 +127,10 @@ namespace DAS901_Desafio2.Controllers
         {
             //Listar películas para el list
             //Filtrar productos si buscador viene con valor o es nulo
-            var peliculas = _db.Peliculas.Include(g => g.Genero).OrderByDescending(c => c.Calificacion).Take(5);
+            var peliculas = _db.Peliculas.Include(g => g.Genero).OrderByDescending(c => c.Calificacion).ThenByDescending(c => c.Puntuacion).Take(5);
 
             ViewBag.Peliculas = peliculas;
+            ViewBag.Grafico =_db.Peliculas.Select(n => new { n.Nombre, n.Puntuacion }).OrderByDescending(c => c.Puntuacion).Take(10).ToList();
             return View();
         }
 
@@ -152,19 +154,19 @@ namespace DAS901_Desafio2.Controllers
 
             Pelicula pelicula = _db.Peliculas.Find(id);
             pelicula.Calificacion = nuevaCalificacion;
+            pelicula.Puntuacion = pelicula.Puntuacion + rating;
 
             _db.SaveChanges();
 
-            TempData["Mensaje"] = "Calificacion guardada exitosamente!";
+            TempData["Mensaje"] = "Calificación guardada exitosamente!";
         }
 
 
         //Funcion para devolver valor promedio de calificacion
         public double CalPelicula(int idPelicula)
         {
-            var calificacion = _db.Calificaciones.Where(i => i.IdPelicula == idPelicula).Average(c => c.CalificacionPelicula);
+            var calificacion = _db.Calificaciones.Where(i => i.IdPelicula == idPelicula).Sum(c => c.CalificacionPelicula);
             return calificacion;
         }
-
     }
 }

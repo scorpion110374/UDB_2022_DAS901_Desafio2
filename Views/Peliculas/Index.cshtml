@@ -11,12 +11,17 @@
     <div class="row form-group inline-block">
         @using (Html.BeginForm("Index", "Peliculas", FormMethod.Get, new { @class = "row w-100 ml-3" }))
         {
-            <label>Filtrar por Género : </label>
+            <label class="ml-3">Filtrar por Género : </label>
             <select class="form-control w-25 ml-3" id="buscGenero" placeholder="-- Seleccione --" asp-items="@(new SelectList(@ViewBag.Generos,"Id","NombreGenero"))">
                 <option value="">Seleccione...</option>
                 <option value="0">- TODOS -</option>
             </select>
             <button class="d-none" type="submit" value="" name="buscadorGenero" id="buscadorGenero">btn</button>
+            <button class="d-none" type="submit" value="" name="buscadorNombre" id="buscadorNombre">btn</button>
+            <label class="ml-3">Buscar por Nombre de Película : </label>
+            <div class="text-right">
+                <input class="form-control ml-3" id="busNombre" name="buscadorNombre"/>
+            </div>
         }
     </div>
     <div class="row">
@@ -140,13 +145,27 @@
             let idPelicula = $(this).attr('idpelicula');
             let ratPelicula = $(this).val();
 
-            //Hacer llamada a controlador
-            $.ajax({
-                url: '@Url.Action("GuardarCalificacion", "Peliculas")',
-                type: "POST",
-                data: { 'id': idPelicula, 'rating': ratPelicula },
-                success: function (data) {
-                    location.reload();
+            //Mostrar mensaje de confirmacion
+            Swal.fire({
+                title: 'Esta seguro?',
+                text: "Esta acción no podra ser revertida!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, enviar calificación!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    //Hacer llamada a controlador
+                    $.ajax({
+                        url: '@Url.Action("GuardarCalificacion", "Peliculas")',
+                        type: "POST",
+                        data: { 'id': idPelicula, 'rating': ratPelicula },
+                        success: function (data) {
+                            location.reload();
+                        }
+                    })
                 }
             })
         })
@@ -159,6 +178,13 @@
             $("#buscadorGenero").click();
         });
 
+        //Filtrar Películas por nombre
+        $("#busNombre").on('change', function () {
+            let buscNombre = $("#busNombre").val();
+            $("#buscadorNombre").val(buscNombre);
+            $("#buscadorNombre").click();
+            console.log(buscNombre);
+        });
     </script>
 
  }

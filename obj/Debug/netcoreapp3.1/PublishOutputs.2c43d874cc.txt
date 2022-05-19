@@ -73,6 +73,7 @@ C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desaf
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\web.config
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\appsettings.json
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\PubTmp\Out\refs\Microsoft.AspNetCore.Antiforgery.dll

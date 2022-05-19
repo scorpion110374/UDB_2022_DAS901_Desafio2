@@ -442,6 +442,7 @@ C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\DAS
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\Razor\Views\Peliculas\Estrenos.cshtml.g.cs
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\Razor\Views\Peliculas\Proximamente.cshtml.g.cs
 C:\Users\Eduardo Trujillo\Documents\ChifungOneDrive\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\Razor\Views\Peliculas\Ranking.cshtml.g.cs
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\web.config
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\DAS901_Desafio2.exe
@@ -884,3 +885,13 @@ C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desaf
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\DAS901_Desafio2.dll
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\DAS901_Desafio2.pdb
 C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\DAS901_Desafio2.genruntimeconfig.cache
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\package.json
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\obj\Debug\netcoreapp3.1\DAS901_Desafio2.csproj.AssemblyReference.cache
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\Eduardo Trujillo\OneDrive\UDB\2022\2022-1\DAS901\Desafio_2\DAS901_Desafio2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

@@ -1,4 +1,5 @@
-﻿@using X.PagedList.Mvc.Core;
+﻿@model DAS901_Desafio2.Models.Pelicula
+@using X.PagedList.Mvc.Core;
 @using X.PagedList;
 
 @{
@@ -38,6 +39,7 @@
                         <p>@pelicula.Sinopsis</p>
                     </div>
                     <label>Calificación:</label>
+                    (@pelicula.Puntuacion)
                     @if (pelicula.Calificacion == 1)
                     {
                         <div class="rating">
@@ -91,5 +93,47 @@
                 </div>
             </div>
         }
+        <canvas id="myChart" width="400" height="400"></canvas>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+<script type="text/javascript">
+    var ctx = document.getElementById('myChart');
+
+    var outcomeData = JSON.parse('@Json.Serialize(ViewBag.Grafico)');
+    var nombreGrafico = [];
+    var puntosGrafico = [];
+
+    Object.keys(outcomeData).forEach(function (key) {
+        nombreGrafico.push(outcomeData[key].nombre);
+        puntosGrafico.push(outcomeData[key].puntuacion);
+    })
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: nombreGrafico,
+            datasets: [{
+                label: 'GRÁFICO DE CALIFICACIÓN',
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(21, 121, 13, 0.8)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJointStyle: 'miter',
+                data: puntosGrafico
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

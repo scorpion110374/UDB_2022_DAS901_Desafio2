@@ -183,6 +183,9 @@ namespace DAS901_Desafio2.Migrations
                     b.Property<bool>("Proximamente")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Puntuacion")
+                        .HasColumnType("int");
+
                     b.Property<string>("Reparto")
                         .IsRequired()
                         .HasColumnType("varchar(100)")
@@ -214,6 +217,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 4,
                             Nombre = "Antes la lluvia",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Patricia ,Isabel ,Inma",
                             Sinopsis = "Es la historia de dos mujeres. Maria es una migrante salvadorena que pierde su trabajo tras enfermar y ademas esta terminando una relacion dolorosa. Esther, una mujer mayor que padece alzheimer, esta perdiendo la memoria, y los recuerdos importantes.",
                             Trailer = "https://www.youtube.com/watch?v=w9djCCDhnVI"
@@ -229,6 +233,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 2,
                             Nombre = "King Regreso a Casa",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Gerard ,Lou ,Leo",
                             Sinopsis = "King, un cachorro de leon traficado, escapa del aeropuerto en pleno transito y encuentra refugio en la casa de Ines y Alex, de 12 y 15 anios. A los hermanos se les ocurre un loco plan traer a King de vuelta a Africa.",
                             Trailer = "https://youtu.be/EC7Cm6kSFT4"
@@ -244,6 +249,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 4,
                             Nombre = "Desesperada",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Naomi ,Phillip ,Colton ,Sierra",
                             Sinopsis = "Una madre corre desesperadamente contra el tiempo para salvar a su hijo mientras las autoridades cierran su pequenio pueblo.",
                             Trailer = "https://youtu.be/5Ca1mXFv2Fc"
@@ -259,6 +265,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 1,
                             Nombre = "El Hombre del Norte",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Nicole,Anya ,Akexander",
                             Sinopsis = "El visionario director Robert Eggers presenta EL HOMBRE DEL NORTE, una epica aventura llena de accion que narra la busqueda de un joven principe vikingo por vengar el asesinato de su padre.",
                             Trailer = "https://youtu.be/_fpTJaHOwbw"
@@ -274,6 +281,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 1,
                             Nombre = "La Ciudad Perdida",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Sandra ,Channing ,Daniel",
                             Sinopsis = "Una novelista romantica solitaria en una gira de libros junto con su modelo de portada se ve envuelta en un intento de secuestro que los lleva a ambos a una feroz aventura en la jungla.",
                             Trailer = "https://youtu.be/Jhl2v32cKzc"
@@ -289,6 +297,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 2,
                             Nombre = "Animales Fantasticos 3",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Mads,Jude ,Ezra",
                             Sinopsis = "Albus Dumbledore sabe que el mago oscuro Gellert quiere apoderarse del mundo magico. Como no puede detenerlo solo, le pide al magizoologo Newt Scamander que lidere un grupo de magos, brujas y un valiente panadero muggle hacia una peligrosa mision.",
                             Trailer = "https://youtu.be/QfYgcLuxS5Y"
@@ -304,6 +313,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 1,
                             Nombre = "Sonic 2 La Pelicula",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Idris ,Ben ,Colleen",
                             Sinopsis = "Despues de establecerse en Green Hills, Sonic esta listo para tener mas libertad, asi que Tom y Maddie lo dejan solo en casa mientras se van de vacaciones. Pero apenas se han ido, el Dr. Robotnik regresa, esta vez con un nuevo aliado, Knuckles.",
                             Trailer = "https://youtu.be/ahVkLQKoLFw"
@@ -320,6 +330,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 2,
                             Nombre = "Doctor Strange 2",
                             Proximamente = false,
+                            Puntuacion = 0,
                             Reparto = "Benedict ,Chiwetel ,Elizabeth",
                             Sinopsis = "Doctor Strange con la ayuda de aliados misticos nuevos y otros ya conocidos por la audiencia, atraviesa las alucinantes y peligrosas realidades alternativas del Multiverso para enfrentarse a un nuevo y misterioso adversario.",
                             Trailer = "https://youtu.be/cFHjZfy50Kk"
@@ -336,6 +347,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 8,
                             Nombre = "Twenty One Pilots Cinema Experience",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Tyler ,Josh",
                             Sinopsis = "Experimenta la epica celebracion del lanzamiento del album Scaled And Icyde 2021, remasterizado para la gran pantalla y con material inedito.",
                             Trailer = "https://www.youtube.com/watch?v=23gp-Sf1Oo8"
@@ -352,6 +364,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 4,
                             Nombre = "El Fotógrafo de Minamata",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Johnny Depp, Bill Nighy, Hiroyuki Sanada",
                             Sinopsis = "El fotografo de guerra W Eugene Smith viaja a Japon para documentar el envenenamiento por mercurio de comunidades costeras enteras.",
                             Trailer = "https://www.youtube.com/watch?v=QEfGnm_72OQ"
@@ -368,6 +381,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 1,
                             Nombre = "El Protegido",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Maggie Q, Michael Keaton, Samuel L. Jackson, Robert Patrick",
                             Sinopsis = "Rescatada de nina por el legendario asesino Moody, Anna es la asesina a sueldo mas habil del mundo. Sin embargo, cuando Moody es brutalmente asesinado, ella jura venganza por el hombre que le enseno todo lo que sabe.",
                             Trailer = "https://youtu.be/SGJ8cOWnqHw"
@@ -384,6 +398,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 9,
                             Nombre = "Nuestra Libertad",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Teodora Vásquez",
                             Sinopsis = "Despues de cumplir diez anios tras las rejas por su aborto espontaneo, considerado por su gobierno como un acto de homicidio agravado, Teodora Vasquez se convierte en portavoz de las otras 16 mujeres salvadorenas tras las rejas por el mismo delito.",
                             Trailer = "https://www.youtube.com/watch?v=R5keA5nF-TI"
@@ -400,6 +415,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 1,
                             Nombre = "Asesino sin Memoria",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Liam Neeson, Guy Pearce, Monica Bellucci, Taj Atwal",
                             Sinopsis = "Alex Lewis es un experto asesino con una reputacion de discreta precision. Cuando Alex se niega a completar un trabajo para una peligrosa organizacion criminal, se convierte en un objetivo y debe ir a la caza de quienes lo quieren muerto.",
                             Trailer = "https://www.youtube.com/watch?v=gUMaCiHNZw0"
@@ -416,6 +432,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 4,
                             Nombre = "Downton Abbey Una Nueva Era",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Hugh Bonneville, Michelle Dockery, Imelda Staunton",
                             Sinopsis = "La secuela de la pelicula de 2019 en la que la familia Crawley y el personal de Downton recibieron la visita real del Rey y la Reina de Gran Bretana.",
                             Trailer = "https://www.youtube.com/watch?v=LHZDzAq9yZ8"
@@ -432,6 +449,7 @@ namespace DAS901_Desafio2.Migrations
                             IdGenero = 1,
                             Nombre = "Top Gun Maverick",
                             Proximamente = true,
+                            Puntuacion = 0,
                             Reparto = "Tom Cruise, Val Kilmer, Miles Teller, Jennifer Connelly, Glen Powell",
                             Sinopsis = "Despues de mas de 30 anios de servicio como uno de los mejores aviadores de la Armada, Pete Maverick Mitchell esta donde pertenece, forzando los limites como valiente piloto de pruebas y esquivando el avance de rango que lo dejaria en tierra.",
                             Trailer = "https://youtu.be/zzBIzYmxatU"

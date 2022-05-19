@@ -43,6 +43,9 @@ namespace DAS901_Desafio2.Models
         [DefaultValue(0)]
         [DisplayName("Calificación")]
         public int Calificacion { get; set; }
+        [DefaultValue(0)]
+        [DisplayName("Puntuación")]
+        public int Puntuacion { get; set; }
 
         [ForeignKey("IdGenero ")]
         public Genero Genero { get; set; }
